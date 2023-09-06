@@ -1,0 +1,31 @@
+{{> navbar}}
+<div class="card-layout">
+
+{{#each departments as |department|}}
+    <div class="card">
+        <div class="department-edit">
+            <button class="edit-department" data-id="{{department.id}}"><a href="/departments/{{department.id}}"><span class="material-symbols-outlined openbtn">edit_square</span></a></button>
+        </div>
+        <div class="department-title">
+            <h3>{{department.department_name}}</h3>
+        </div>
+        <div class="department-jobs">
+            <ul>
+                {{#each department.jobs as |job|}}
+                    <li>{{job.job_title}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    
+{{/each}}
+
+    <div class="card">
+
+        <button class="add-department"><a href="/api/departments/create"><div class="add"></div></a></button>
+
+    </div>
+
+
+</div>
+
